@@ -2,7 +2,14 @@ const toDoForm = document.getElementById("todo-form");
 const toDoInput = document.querySelector("#todo-form input");
 const toDoList = document.getElementById("todo-list");
 
+const TODOS_KEY ="todos"
+
 const toDos = [];
+
+//saveToDOs가 할일은 toDos array를 localStorage에 집어넣는것.
+function saveToDos(){
+    localStorage.setItem(TODOS_KEY, JSON.stringify(todos));
+}
 
 
 //saveToDo가 할일은 toDos array를 localSorage에 집어넣는것.
@@ -40,3 +47,14 @@ function handleToDoSubmit(event){
 }
 
 toDoForm.addEventListener("submit", handleToDoSubmit)
+
+const savedToDos = localStorage.getItem(TODOS_KEY);
+
+console.log(savedToDos);
+
+//만약 savedToDos가 localStorage에 존재하면 parsedToDos 라는
+// variable을 만들어서<localStorage에서 온 string을 가지고
+if(savedToDos !== null){
+    const parsedToDos = JSON.parse(savedToDos);
+    console.log(parsedToDos);
+}
