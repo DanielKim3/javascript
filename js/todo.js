@@ -21,6 +21,10 @@ function deleteToDo(event){
 /* console.dir(event.target.parentElement); //target은 클릭된 HTML element. 모든 HTML element에는 하나 이상의 property가 존재. parentElement는 클릭된 element의 부모 */
     const li = event.target.parentElement;
     li.remove();
+    console.log(typeof li.id);
+    toDos = toDos.filter(toDo => toDo.id !== parseInt (li.id));
+    saveToDos();
+   
 }
 
 function paintToDo(newTodo){
