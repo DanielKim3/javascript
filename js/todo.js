@@ -70,4 +70,3 @@ if(savedToDos !== null){
    parsedToDos.forEach((item) => console.log("this is the turn of", item));
 }
 
-paintToDo({text:"a", id:12121212})
